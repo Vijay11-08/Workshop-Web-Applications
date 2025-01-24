@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object In Java Script</title>
+</head>
+<body>
+    <script>
+        // First Creation of Dictonary or Object
+        let v1 = {a:true,12:12.3 };
+        v1.name = " Vijay " ;
+        v1["age"] = 21 ;
+        console.log(v1); 
+
+        // First Method to Access Key Value
+        // Accessing key values from Dictionary
+        console.log(v1.a);  // true
+        console.log(v1[12]);  // 12.3
+        console.log(v1.name); // Vijay
+        console.log(v1["age"]); // 21
+
+        // Secound Method to Access Key Value
+        console.log(Object.keys(v1));
+
+        // Secound Dictionary Define
+        let v2 = { d : "Hellow" , e : false , f : [1,2,3,4]};
+
+        // Third Empty Dictonary define
+        let v3 = {} ; 
+
+
+        // Adding key-value pairs to an empty object
+        //Two Dictinory Combinations
+        Object.assign(v3,v1,v2);
+        console.log(v3);
+
+        // Using Entries Method 
+        console.log(v3.entries);
+    </script>
+
+    <h1> Objects In Java Script </h1>
+
+    <li>Creation Of Dictonary Object</li>
+
+    <li>Accessing key values from Dictionary</li>
+    <ul>let v1 = {a:true,12:12.3 };</ul>
+    <ul>console.log(v1.a); </ul>
+
+    <li>Secound Method to Access Key Value</li>
+    <ul>console.log(Object.keys(v1));</ul>
+
+    <li>Secound Dictionary Define</li>
+    <ul>let v2 = { d : "Hellow" , e : false};</ul>
+
+    <li>Two Dictinory Combinations</li>
+    <ul>Object.assign(v1,v2);</ul>
+
+    <li>Using Entries Method </li>
+    <ul>console.log(v1.entries);</ul>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+
+        let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log(arr1);
+
+        // Get the length of the array
+        console.log(arr1.length);
+        console.log(arr1[arr1.length - 2]);
+        console.log(arr1);
+
+        // Push elements into arrays
+        arr1.push(11);
+        arr1.push(12);
+        console.log(arr1);
+
+        // 
+        arr1.unshift(99);
+        arr1.unshift(88);
+        console.log(arr1);
+
+        // Remove a last element from the array
+        v1 = arr1.pop();
+        console.log(`${arr1} : ${v1}`);
+
+        // Remove a first element from the array
+        v2 = arr1.shift();
+        console.log(`${arr1} : ${v2}`);
+
+        //
+        console.log(arr1.indexOf(9));
+        console.log(arr1.indexOf(10));
+
+        // That can show the particular element in array here or not
+        console.log(arr1.includes(5));
+
+        // Reverse the array
+        console.log(arr1.reverse());
+
+        // Sorting the array
+        console.log(arr1.sort());
+
+        // Sliceing the array
+        arr2 = arr1.slice(3,7);
+        console.log(arr2);
+
+        // Splice the array
+        arr3 = arr1.splice(3,7);
+        console.log(arr1);
+        console.log(arr3);
+
+
+    </script>
+    
+
+    <h1> Array Excersize  </h1>
+    <li>  Length   </li>
+    <li>  Push    (it will add end of the array)  </li>
+    <li>  Pop     (it will remove last element of array)    </li>
+    <li>  Shift   (it will remove first element)  </li>
+    <li>  Indexof (it will say you index)   </li>
+    <li>  Include (checks that element is available or not) </li>
+    <li>  Reverse (reverse the array elements) </li>
+    <li>  Sort    (sort the array elements) </li>
+    <li>  Slice   (it print elemet to element)   </li>
+    <li>  Splice  (it will print index wise)  </li>
+    
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions In Java Script</title>
+</head>
+<body>
+    <script>
+
+        // First Function Declaration
+        function RKU()
+        {
+            console.log("Hello, RKU!");
+        }
+        RKU();
+
+
+        // Secound Function Declarations
+        function Operations(a = 5,b = 55)
+        {
+            return a + b;
+        }
+
+        console.log(Operations(4,5));
+
+        console.log(Operations("ABC", "RKU"));
+
+        console.log(Operations("Hello",5));
+
+        console.log(Operations(true,false));
+
+        console.log(Operations());
+
+        console.log(Operations(22));
+
+        // Third Function Declaration
+        function Test()
+        {
+            console.log("This Is a Test Function ");
+        }
+        setTimeout(Test, 3000);
+
+    </script>
+
+    <h2>Functions In Java Script</h2>
+
+    <li>First Function: RKU()</li>
+    <ul> - Logs "Hello, RKU!"</ul>
+
+    <li>Second Function: Operations(a,b) </li>
+    <ul>- Adds two numbers and returns the result</ul>
+
+    <li>Third Function: Operations("ABC", "RKU")</li>
+    <ul> - Adds two strings and returns the result</ul>
+
+    <li>Fourth Function: Operations("Hello",5) </li>
+    <ul>- Adds a string and a number and returns the result</ul>
+
+    <li>Fifth Function: Operations() </li>
+    <ul>- Adds two default values (5 and 55) and returns the result</ul>
+
+    <li>Sixth Function: Operations(22)</li>
+    <ul> - Adds a number (22) to two default values (5 and 55) and returns the result</ul>
+
+</body>
+</html>

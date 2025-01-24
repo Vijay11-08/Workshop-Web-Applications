@@ -30,9 +30,12 @@
         function PrimeNumber()
         {
             let flag = 0;
-            for (let i = 2; i <= 100; i++){
-                for (let j = 2; j <= i/2; j++){
-                    if (i % j == 0){
+            for (let i = 2; i <= 100; i++)
+            {
+                for (let j = 2; j <= i/2; j++)
+                {
+                    if (i % j == 0)
+                    {
                         flag = 1;
                         break;
                     }
@@ -79,6 +82,36 @@
             console.log(reverse);
         }
         ReverseNumber();
+
+        //Write a Programme for Genrate AliQuot Sequance For a Number 
+        function AliQuotNumber()
+        {
+            let num = 10;
+            for(let i = 1; i <= num; i++)
+            {
+                console.log(num + " / " + i + " = " + Math.floor(num / i));
+            }
+        }
+        AliQuotNumber();
+
+        //Write a Programme for Genrate Fibonacci Sequance For a Number
+        function FibonacciNumber()
+        {
+            let num = 10;
+            let a = 0, b = 1;
+            console.log(a);
+            console.log(b);
+            for(let i = 2; i < num; i++)
+            {
+                let c = a + b;
+                console.log(c);
+                a = b;
+                b = c;
+            }
+        }
+        FibonacciNumber();
+
+        
     </script>
     
     
