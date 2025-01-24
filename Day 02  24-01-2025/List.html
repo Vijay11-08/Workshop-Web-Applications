@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List In Java Script</title>
+</head>
+<body>
+    <script>
+
+        // Higher Order Functions
+        let list1= ["DBMS", "DS" , "JAVA" , "OS" , "CD"]
+        console.log(list1);
+
+        // Find the first instant in list 
+        let list2 = list1.find(i => i.length == 2);
+        console.log(list2);
+
+        // Using the for loop
+        for(let i = 0; i < list1.length; i++) 
+        {
+            if(list1[i].length == 2)
+            {
+                console.log("List 1 Length :- ",list1[i]);
+            }
+        }
+
+        // Filter the elements of list which length is 2
+        list2 - list1.filter((i)=> i.length === 2)
+        console.log(list2);
+
+        // Map the elements of list which length is 2
+        list2 = list1.map((i)=> i.length === 2)
+        console.log(list2);
+
+
+    </script>
+
+    <h1>Higher Order Functions </h1>
+    <li> Find () - "Find the first instant in list"</li>
+    <li> Filter () - "Filter the elements of list which length is 2"</li>
+    <li> Map () - "Map the elements of list which length is 2"</li>
+
+
+
+</body>
+</html>
