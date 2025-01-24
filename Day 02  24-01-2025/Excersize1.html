@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipluate Html Codes</title>
+</head>
+<body>
+    <h1 id="head1"> Vijay </h1>
+    <p id="p1">Hii Vijay</p>
+
+    <script>
+
+        // Outside of the function
+        // document.getElementById("head1").innerHTML = "Manipluate Html Codes";
+        // document.getElementById("p1").innerHTML = "This is a new Paragraph";
+
+        // Inside of the function
+        function Excersize1()
+        {
+            document.getElementById("head1").innerHTML = "Manipluate Html Codes";
+            document.getElementById("head1").style.color = " green ";
+
+            document.getElementById("p1").style.color = "red";
+            document.getElementById("p1").innerHTML = "This is a new Paragraph";
+        }
+        Excersize1();
+
+        // Write a progarme to genrate series of programme of numbers in between 1 to 100
+        function PrimeNumber()
+        {
+            let flag = 0;
+            for (let i = 2; i <= 100; i++){
+                for (let j = 2; j <= i/2; j++){
+                    if (i % j == 0){
+                        flag = 1;
+                        break;
+                    }
+                }
+                if (flag == 0) console.log(i);
+                flag = 0;
+            }
+        }
+        PrimeNumber();
+
+
+        //WAP to genrate amicable number pair in between 1 to 1000
+        // (x -> SOD(x) - y ,  y -> SOD(y) - z) , z = x , x and y is amicable number
+        function AmiCableNumber()
+        {
+            for (let i = 1; i <= 1000; i++) 
+            {
+                let sum = 0;
+                for(let j = 1; j < i; j++)
+                {
+                    if(i % j == 0) sum += j;
+                }
+
+                let sum2 = 0;
+                for(let j = 1; j < sum; j++)
+                {
+                    if(sum % j == 0) sum2 += j;
+                }
+                if(sum2 == i && sum != i) console.log(i + " " + sum);
+            }
+        }
+        AmiCableNumber();
+
+        //WAP to reverse a number without string operations
+        function ReverseNumber()
+        {
+            let num = 12345;
+            let reverse = 0;
+            while(num!= 0)
+            {
+                reverse = (reverse * 10) + (num % 10);
+                num = Math.floor(num / 10);
+            }
+            console.log(reverse);
+        }
+        ReverseNumber();
+    </script>
+    
+    
+</body>
+</html>
