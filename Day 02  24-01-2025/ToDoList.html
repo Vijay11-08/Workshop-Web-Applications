@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> To - Do List </title>
+</head>
+<body>
+    <h1> To - Do List </h1>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+   
+    <button onclick="editTask()">Edit</button>
+
+    <ul id="taskList">
+
+    </ul>
+    
+    <script>
+        let tasks = [];
+        
+        function addTask() {
+            let taskInput = document.getElementById("taskInput").value;
+            tasks.push(taskInput);
+            document.getElementById("taskInput").value = "";
+            displayTasks();
+        }
+        
+        function displayTasks() {
+            let taskList = document.getElementById("taskList");
+            taskList.innerHTML = "";
+            tasks.forEach((task, index) => {
+                let li = document.createElement("li");
+                li.innerText = `${index+1}. ${task}`;
+                li.addEventListener("click", () => {
+                    editTask(index);
+                });
+                taskList.appendChild(li);
+                <button onclick="deleteTask()"> Delete </button>
+
+                // Delete button
+                let deleteButton = document.createElement("button");
+                deleteButton.innerText = "Delete";
+                deleteButton.addEventListener("click", () => {
+                    deleteTask(index);
+                });
+                li.appendChild(deleteButton);
+                
+            });
+        }
+        
+        function deleteTask() {
+            let taskList = document.getElementById("taskList");
+            let selectedTasks = taskList.querySelectorAll("li.selected");
+            selectedTasks.forEach(task => {
+                task.parentNode.removeChild(task);
+            });
+            tasks = tasks.filter(task =>!task.classList.contains("selected"));
+        }
+        
+        function editTask(index) {
+            let taskList = document.getElementById("taskList");
+            let selectedTasks = taskList.querySelectorAll("li.selected");
+            selectedTasks.forEach(task => {
+                task.classList.remove("selected");
+            });
+            let selectedTask = taskList.children[index];
+            selectedTask.classList.add("selected");
+            let taskInput = document.getElementById("taskInput");
+            taskInput.value = selectedTask.innerText.split(". ")[1];
+        }
+        </script>
+</body>
+</html>
