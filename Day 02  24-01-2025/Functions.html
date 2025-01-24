@@ -34,12 +34,46 @@
 
         console.log(Operations(22));
 
+        
+
+        //Fourth Function Declaration
+        //How to store functions into variables
+        let var3 =  function (x,y)
+        {
+            return x + y;
+        };
+        console.log("x + y :- ",var3(4,5));
+
+        //Fifth Function Declaration
+        let var4 = (x,y) => {
+            return x * y;
+        }
+        console.log("x * Y :- ",var4(4,5));
+
+
+        //Sixth Function Declaration
+        let var5 = (x,y) => {
+            return x - y;
+        }
+        console.log("x - y :- ",var5(4,5));
+
+        //Seventh Function Declaration
+        let var6 = (x) => x * x * x;
+        console.log("x * x * x :- ",var6(4));
+
+        //Eighth Function Declaration
+        let var7 = ()=>{
+            console.log("Hyyyyy Vijayyyyyyy..........!")
+        };
+        var7();
+
         // Third Function Declaration
         function Test()
         {
             console.log("This Is a Test Function ");
         }
         setTimeout(Test, 3000);
+
 
     </script>
 
@@ -62,6 +96,15 @@
 
     <li>Sixth Function: Operations(22)</li>
     <ul> - Adds a number (22) to two default values (5 and 55) and returns the result</ul>
+    
+    <li>Seventh Function: var6(4) </li>
+    <ul> - Cubes a number (4) and returns the result</ul>
+    
+    <li>Eighth Function: var7() </li>
+    <ul> - Logs "Hyyyyy Vijayyyyyyy..........!"</ul>
+    
+    <li>Ninth Function: Test() </li>
+    <ul> - Logs "This Is a Test Function " after 3 seconds</ul>
 
 </body>
 </html>

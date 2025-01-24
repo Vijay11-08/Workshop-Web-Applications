@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excersize 2 For Functions</title>
+</head>
+<body>
+
+    <script>
+        function Fibonaci(n) 
+        {
+            let a = 0, b = 1;
+            console.log("Fibonacci Series:");
+            for (let i = 0; i < n; i++) 
+            {
+                console.log(a);
+                let next = a + b;
+                a = b;
+                b = next;
+            }
+        }
+        Fibonaci(5); // Generates the first 5 Fibonacci numbers
+
+        function Armstrong(range) 
+        {
+            console.log("Armstrong Numbers:");
+            for (let num = 1; num <= range; num++) 
+            {
+                let sum = 0;
+                let temp = num;
+                while (temp > 0) 
+                {
+                    let digit = temp % 10;
+                    sum += Math.pow(digit, 3);
+                    temp = Math.floor(temp / 10);
+                }
+            if (sum === num) 
+            {
+            console.log(num);
+            }
+        }
+    }
+    Armstrong(500); // Finds Armstrong numbers from 1 to 500
+
+
+    function PerfactNumber()
+        {
+            console.log("Perfect Numbers:");
+            for (let num = 1; num <= 1000000; num++) 
+            {
+                let sum = 0;
+                for (let i = 1; i < num; i++)
+                {
+                    if (num % i === 0)
+                    {
+                        sum += i;
+                    }
+                }
+                if (sum === num)
+                {
+                    console.log(num);
+                }
+            }
+        }
+        PerfactNumber(); 
+
+    </script>
+
+    <h1>Excersize 2 For Functions</h1>
+    <li> 1.  Write a user define function to genrate Fibonacci series in console  </li>
+    <ul> Fibonacci Series:  </ul>
+    <ul>0</ul>
+    <ul>1</ul>
+    <ul>2</ul>
+    <ul>3</ul>
+
+    <li> 2. Write user define function to  a find armstrong number in range of 1 to 500</li>
+    <ul> Armstrong Numbers: </ul>
+    <ul>  1</ul>
+    <ul>  153</ul>
+    <ul>  370</ul>
+    <ul>  371</ul>
+    <ul>  407</ul>
+
+    <li> 3. Write a user define function to find perfact numbers between 1 and 1000000</li>
+    <ul> Perfect Numbers: </ul>
+    <ul>6</ul>
+    <ul>28</ul>
+    <ul>496</ul>
+    <ul>8128</ul>
+
+
+
+
+
+</body>
+</html>
