@@ -1,75 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> To - Do List </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .todo-container {
+      max-width: 400px;
+      margin: auto;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px;
+      font-size: 14px;
+      margin: 5px 0;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+    .edit-input {
+      flex-grow: 1;
+      margin-right: 10px;
+      padding: 5px;
+    }
+    .edit-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+    .delete-btn {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 <body>
-    <h1> To - Do List </h1>
 
-    <input type="text" id="taskInput" placeholder="Enter a task">
-    <button onclick="addTask()">Add Task</button>
-   
-    <button onclick="editTask()">Edit</button>
+<div class="todo-container">
+  <h1>To-Do List</h1>
+  <input type="text" id="taskInput" placeholder="Enter a task">
+  <button onclick="addTask()">Add Task</button>
+  <ul id="taskList"></ul>
+</div>
 
-    <ul id="taskList">
+<script>
+  const taskInput = document.getElementById('taskInput');
+  const taskList = document.getElementById('taskList');
 
-    </ul>
-    
-    <script>
-        let tasks = [];
-        
-        function addTask() {
-            let taskInput = document.getElementById("taskInput").value;
-            tasks.push(taskInput);
-            document.getElementById("taskInput").value = "";
-            displayTasks();
-        }
-        
-        function displayTasks() {
-            let taskList = document.getElementById("taskList");
-            taskList.innerHTML = "";
-            tasks.forEach((task, index) => {
-                let li = document.createElement("li");
-                li.innerText = `${index+1}. ${task}`;
-                li.addEventListener("click", () => {
-                    editTask(index);
-                });
-                taskList.appendChild(li);
-                <button onclick="deleteTask()"> Delete </button>
+  // Add a new task
+  function addTask() {
+    const taskText = taskInput.value.trim();
+    if (taskText === '') {
+      alert('Please enter a task.');
+      return;
+    }
 
-                // Delete button
-                let deleteButton = document.createElement("button");
-                deleteButton.innerText = "Delete";
-                deleteButton.addEventListener("click", () => {
-                    deleteTask(index);
-                });
-                li.appendChild(deleteButton);
-                
-            });
-        }
-        
-        function deleteTask() {
-            let taskList = document.getElementById("taskList");
-            let selectedTasks = taskList.querySelectorAll("li.selected");
-            selectedTasks.forEach(task => {
-                task.parentNode.removeChild(task);
-            });
-            tasks = tasks.filter(task =>!task.classList.contains("selected"));
-        }
-        
-        function editTask(index) {
-            let taskList = document.getElementById("taskList");
-            let selectedTasks = taskList.querySelectorAll("li.selected");
-            selectedTasks.forEach(task => {
-                task.classList.remove("selected");
-            });
-            let selectedTask = taskList.children[index];
-            selectedTask.classList.add("selected");
-            let taskInput = document.getElementById("taskInput");
-            taskInput.value = selectedTask.innerText.split(". ")[1];
-        }
-        </script>
+    const li = document.createElement('li');
+    const taskSpan = document.createElement('span');
+    taskSpan.textContent = taskText;
+
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.className = 'edit-btn';
+    editBtn.onclick = () => editTask(li, taskSpan);
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.onclick = () => deleteTask(li);
+
+    li.appendChild(taskSpan);
+    li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
+    taskList.appendChild(li);
+
+    taskInput.value = '';
+  }
+
+  // Edit an existing task
+  function editTask(li, taskSpan) {
+    const currentText = taskSpan.textContent;
+    const editInput = document.createElement('input');
+    editInput.type = 'text';
+    editInput.value = currentText;
+    editInput.className = 'edit-input';
+
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = 'Save';
+    saveBtn.className = 'edit-btn';
+    saveBtn.onclick = () => {
+      taskSpan.textContent = editInput.value.trim() || currentText;
+      li.replaceChild(taskSpan, editInput);
+      li.removeChild(saveBtn);
+    };
+
+    li.replaceChild(editInput, taskSpan);
+    li.appendChild(saveBtn);
+  }
+
+  // Delete a task
+  function deleteTask(li) {
+    taskList.removeChild(li);
+  }
+</script>
+
 </body>
 </html>
