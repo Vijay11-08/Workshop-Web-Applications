@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "weather-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,10 +31,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "demo": "^0.1.10",
-    "web-vitals": "^4.2.4",
-    "webpack": "^5.97.1"
   }
 }
