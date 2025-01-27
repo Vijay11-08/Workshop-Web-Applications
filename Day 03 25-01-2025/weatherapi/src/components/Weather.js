@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fetchWeather } from "../openWeatherMap";
+import "./weather.css";
 
 const Weather = () => {
     const [city, setCity] = useState("");
