@@ -32,7 +32,6 @@ function ColorPicker()
             <input type="color" value={clr2} onChange={(e)=> setColor2(e.target.value)}/>
             <p style={{color:clr1,backgroundColor:clr2}}> this is a para</p> 
             </div>
-            );
+        );
 }
-
 export default ColorPicker;

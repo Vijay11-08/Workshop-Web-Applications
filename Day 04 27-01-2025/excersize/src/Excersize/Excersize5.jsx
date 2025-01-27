@@ -26,15 +26,13 @@ function Pagination() {
                 {currentItems.map(item => (
                     <div key={item}>{item}</div>
                 ))}
-            </div>
+            </div>    
             <div>
                 {Array.from({ length: Math.ceil(items.length / itemsPerPage) }, (_, i) => i + 1).map(number => (
                     <button key={number} onClick={() => paginate(number)}>{number}</button>
                 ))}
             </div>
         </div>
-        );
-
+    );
 }
-
 export default Pagination;
