@@ -9,11 +9,12 @@ import ColorPicker from './Excersize/Excersize3';
 import DarkMode from './Excersize/Excersize4';
 import Pagination from './Excersize/Excersize5';
 import SearchBar from './Excersize/Excersize6';
+import DayNight from './Excersize/Excersize4';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <SearchBar />
+    <DayNight />
   </React.StrictMode>
 );
 

@@ -1,72 +1,74 @@
 import React,{ useState } from "react";
-
 // Create a to-do list with the help of the usestate .
 //         allow user to remove completed task using task manager (useState)
-//         2 textboxes
-//         1. Allow User To Add Task 
-//         2. Allow User To completed task using  Remove Task
+//         2 textboxes and 2 buttons
+//         one for add task and one for remove task using orderlist number only
 
-//         2 button
-//         1 for add and 1 for remove task
 function ToDoList()
 {
-    const [taskList, setTaskList] = useState([]);
-    const [task, setTask] = useState('');
-    const [completedTask, setCompletedTask] = useState([]);
+    // const [tasks, setTasks] = useState([]);
+    // const [task, setTask] = useState('');
     
-    // Function to add new task
-    const addTask = () => {
-        if(task.trim() === '') {
-            alert('Task cannot be empty!');
-            return;
-        }
-        setTaskList([...taskList, task]);
-        setTask('');
-    }
+    // // Function to add task
+    // const addTask = () =>
+    // {
+    //     if(task.trim() === '') return;
+    //     setTasks([...tasks, task]);
+    //     setTask('');
+    // }
     
-    // Function to remove task
-    const removeTask = (index) => {
-        setTaskList(taskList.filter((_, i) => i!== index));
-    }
-    
-    // Function to mark task as completed
-    const completeTask = (index) => {
-        const completedTasks = [...completedTask, taskList[index]];
-        setTaskList(taskList.filter((_, i) => i!== index));
-        setCompletedTask(completedTasks);
-    }
-    
-    return (
-        <div>
-            <h1>To-Do List</h1>
+    // // Function to remove task
+    // const removeTask = (index) =>
+    //     {
+    //         const updatedTasks = [...tasks];
+    //         updatedTasks.splice(index, 1);
+    //         setTasks(updatedTasks);
+        
+    //         }
             
-            <input type="text" value={task} onChange={(e) => setTask(e.target.value)} placeholder="Enter Task" />
-            <button onClick={addTask}>Add Task</button>
-            
-            <h2>Task List</h2>
-            <ul>
-                {taskList.map((task, index) => (
-                    <li key={index}>
-                        {task}
-                        <button onClick={() => removeTask(index)}>Remove</button>
-                        <button onClick={() => completeTask(index)}>Complete</button>
-                    </li>
-                ))}
-            </ul>
-            
-            <h2>Completed Tasks</h2>
-            <ul>
-                {completedTask.map((task, index) => (
-                    <li key={index}>{task}</li>
-                ))}
-                <button onClick={() => setCompletedTask([])}>Clear Completed Tasks</button>
+    // return(
+    //     <div className="container">
+    //         <h1>Task List</h1>
+    //         <input type="text" placeholder="Add Task" value={task} onChange={(e) => setTask(e.target.value)}/>
+    //         <button onClick={addTask}>Add Task</button>
+    //         <input type="text" placeholder="Remove Task" value={task} onChange={(e) => setTask(e.target.value)}/>
+    //         <button onClick={() => removeTask(Number(task) - 1)}>Remove Task</button>
 
+    //         <ul>
+    //             {tasks.map((task, index) =>
+    //                 <li key={index}>{task} <button onClick={() => removeTask(index)}>Remove</button></li>
+    //             )}
+    //         </ul>
+    //         </div>
+    //     );
+  
+    const [list, setList]= useState([]);
+    const[input, setInput]= useState("");
+    const[i,setI]= useState(0);
+    return(
+        <div>
+            <h1>Task List</h1>
+            <input type="text" onChange={(e)=> setInput(e.target.value)}/>
+            <button onClick={()=> setList([...list, input])}>Add Task</button>
+
+            <input type="number" value={i} onChange={(e)=>setI(Number(e.target.value))} />
+
+            <button onClick={()=> {
+                let li = list;
+                li.splice(i,1);
+                console.log(li);
+                setList(li);
+                setI(0);
+            }}>
+                remove
+            </button>
+
+            <ul>
+                {list.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
             </ul>
         </div>
-
     );
-
-
 }
-
 export default ToDoList;
