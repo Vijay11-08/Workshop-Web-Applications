@@ -5,7 +5,7 @@ function connecetionObj ( ) {
     user : "postgres",
     host : "localhost",
     database : "playerdb",
-    password : "Vijay@1409",
+    password : "-------------",
     port : 5432 , // default port for PostgreSQL
     max : 20,
   });
