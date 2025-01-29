@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #register-list {
+            margin-top: 20px;
+            width: 80%;
+            max-width: 500px;
+        }
+        .register-item {
+            background: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <h1>Register Page</h1>
+    <form id="register-form">
+        <input type="text" id="name" placeholder="Enter Name" required />
+        <input type="number" id="qty" placeholder="Enter Quantity" required />
+        <button type="submit">Add Register</button>
+    </form>
+
+    <div id="register-list"></div>
+
+    <script>
+        const form = document.getElementById('register-form');
+        const registerList = document.getElementById('register-list');
+
+        // Function to fetch and display register data
+        async function fetchRegisters() {
+            try {
+                const response = await axios.get('http://localhost:3000/'); // Replace with your API base URL
+                const registers = response.data.msg;
+
+                // Clear the list before re-rendering
+                registerList.innerHTML = '';
+                registers.forEach(register => {
+                    const item = document.createElement('div');
+                    item.classList.add('register-item');
+                    item.innerHTML = `
+                        <span>${register.name} (Qty: ${register.qty})</span>
+                    `;
+                    registerList.appendChild(item);
+                });
+            } catch (error) {
+                console.error('Error fetching registers:', error);
+            }
+        }
+
+        // Function to handle form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const qty = document.getElementById('qty').value;
+
+            try {
+                await axios.post('http://localhost:3000/register', { name, qty }); // Replace with your API base URL
+                alert('Register added successfully!');
+                form.reset();
+                fetchRegisters(); // Refresh the list
+            } catch (error) {
+                console.error('Error adding register:', error);
+                alert('Failed to add register.');
+            }
+        });
+
+        // Fetch and display registers on page load
+        fetchRegisters();
+    </script>
+</body>
+</html>

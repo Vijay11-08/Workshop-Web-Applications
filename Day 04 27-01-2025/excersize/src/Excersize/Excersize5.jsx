@@ -34,5 +34,6 @@ function Pagination() {
             </div>
         </div>
     );
+    
 }
 export default Pagination;
